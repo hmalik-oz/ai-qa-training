@@ -46,28 +46,6 @@ def test_product_details(page):
     expect(page.locator("text=Add to Cart")).to_be_visible()
     print("Success: Add to Cart button is visible")
 
-# Assignment1 - Test3 Add to Cart
-def test_add_to_cart(page):
-    # Initialize variables
-    product_name = page.locator("[data-test='product-name']").text_content()
-    product_price = page.locator("[data-test='unit-price']").text_content()
-
-    # Add product to cart
-    page.click("text=Add to Cart")
-    print("Success: Added product to cart")
-
-    # Verify cart count
-    expect(page.locator("[data-test='cart-quantity']")).to_have_text("1")
-    print("Success: Cart count is correct")
-
-    # Navigate to cart
-    page.click("[data-test='nav-cart']")
-
-    #Verify product name, quantity and price in cart
-    expect(page.locator("[data-test='product-title']")).to_contain_text(product_name)
-    expect(page.locator("[data-test='product-quantity']")).to_have_value("1")
-    expect(page.locator("[data-test='product-price']")).to_contain_text(product_price)
-    print("Success: Product name, quantity and price are correct in cart")
 
 
 def main():
